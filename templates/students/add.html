@@ -6,15 +6,19 @@
 {%block content%}
 <h2>Add a new student</h2>
 <p></p>
-<form>
+<form method="POST">
     <label for="studentID">Student ID: </label>
-    <input type="text" name="studentID"><br>
+    <input type="text" name="studentID" class="border-black rounded border-solid appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"><br>
     <label for="studentName">Student Name: </label>
-    <input type="text" name="studentName"><br>
+    <input type="text" name="studentName" class="border-black rounded border-solid appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"><br>
     <label for="email">Email: </label>
-    <input type="text" name="email"><br>
+    <input type="text" name="email" class="border-black rounded border-solid appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"><br>
     <label for="tutorID">Tutor ID: </label>
-    <select name="tutorID"><br>
-    <input type="submit" value="Add">
+    <select name="tutorID" class="border-black rounded border-solid appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"><br>
+        {% for tt in tutors: %}
+            <option value="{{tt[0]}}">{{tt[1]}}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" value="Add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
 </form>
 {% endblock %}

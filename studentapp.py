@@ -26,11 +26,29 @@ def student_view(sid):
     return render_template("students/view.html", student = studentdetail)
 
 
-@app.route("/student/add")
+@app.route("/student/add", methods=['GET', 'POST'])
 def student_add():
-    tutor_list = tutor_database.getAll()
-    print(tutor_list)
-    return render_template("students/add.html", )
+    if request.method == "POST":
+        print(request.form)
+        if request.form['studentID'] !='':
+            s = dict()
+            s['sid'] = request.form['studentID']
+            s['sname'] = request.form['studentName'] if request.form['studentName'] != '' else ''
+            s['email'] = request.form['email'] if request.form['email'] != '' else ''
+            s['tut_id'] = request.form['tutorID'] if request.form['tutorID'] != '' else ''
+            student = db.Student()
+            if student.addNew(s):
+                print("Insert succcesfully")
+                return redirect(url_for('student_view', sid=s['sid']))
+            else:
+                print('Error')
+                print(s)
+                return redirect(url_for('student_add'))
+        return redirect(url_for('student_add'))
+    else:
+        tutor_list = tutor_database.getAll()
+        print(tutor_list)
+        return render_template("students/add.html", tutors = tutor_list)
 
 
 @app.route("/student/edit/<sid>")

@@ -33,10 +33,13 @@ class Student(Model):
             myresult = ()
         return myresult
 
-    def addID(self, id):
-
-        pass
-
+    def addNew(self, student):
+        self.dbcursor.execute('insert into ' + self.tbName + ' values (%s, %s, %s, %s)',
+                              (student['sid'], student['sname'], student['email'],student['tut_id']))
+        myresult = self.conn.commit()
+        if self.dbcursor.rowcount == 0:
+            return False
+        return True
 class Tutor(Model):
     def __init__(self):
         super().__init__()

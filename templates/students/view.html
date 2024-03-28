@@ -5,18 +5,18 @@
 
 {%block content%}
 <h2>Student Detail</h2>
-<table width="1000px" border="1">
-    <tr>
-        <td>Student ID</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Tutor ID</td>
+<table width="1000px" border="1" class="w-full text-left shadow-lg rounded-lg mt-5">
+    <tr class="bg-gray-500 text-white">
+        <td class="px-6 py-4">Student ID</td>
+        <td class="px-6 py-4">Name</td>
+        <td class="px-6 py-4">Email</td>
+        <td class="px-6 py-4">Tutor ID</td>
     </tr>
-    <tr>
-        <td>{{student[0}}</td>
-        <td>{{student[1}}</td>
-        <td>{{student[2}}</td>
-        <td>{{student[3}}</td>
+    <tr class="divide-y divide-gray-200">
+        <td class="px-6 py-4">{{student[0]}}</td>
+        <td class="px-6 py-4">{{student[1]}}</td>
+        <td class="px-6 py-4">{{student[2]}}</td>
+        <td class="px-6 py-4">{{student[3]}}</td>
     </tr>
 </table>
 {% endblock %}
