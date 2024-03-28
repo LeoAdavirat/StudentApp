@@ -1,0 +1,27 @@
+{%extends "base.html" %}
+{%block title%}
+<h1>Student List</h1>
+{%endblock%}
+
+{%block content%}
+<h2>Student Detail</h2>
+<table width="1000px" border="1">
+        <tr>
+            <td>Student ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Tutor ID</td>
+        </tr>
+        {% for st in students: %}
+        <tr>
+<!--            {% for c in st:  %}-->
+<!--                <td>{{c}}</td>-->
+<!--            {% endfor %}-->
+            <td>{{st[0]}}</td>
+            <td class="underline underline-offset-auto text-blue-500"><a href="{{url_for('student_view', sid=st[0])}}">{{st[1]}}</a></td>
+            <td>{{st[2]}}</td>
+            <td>{{st[3]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{%extends "base.html" %}
+{%block title%}
+<h1>Insert Student</h1>
+{%endblock%}
+
+{%block content%}
+<h2>Add a new student</h2>
+<p></p>
+<form>
+    <label for="studentID">Student ID: </label>
+    <input type="text" name="studentID"><br>
+    <label for="studentName">Student Name: </label>
+    <input type="text" name="studentName"><br>
+    <label for="email">Email: </label>
+    <input type="text" name="email"><br>
+    <label for="tutorID">Tutor ID: </label>
+    <select name="tutorID"><br>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}
